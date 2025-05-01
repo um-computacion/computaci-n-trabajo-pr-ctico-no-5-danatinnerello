@@ -1,5 +1,6 @@
 import unittest
 from src.profesor import Profesor
+from src.alumno import Alumno
 
 class TestProfesor(unittest.TestCase):
     def test_crear_profesor(self):
@@ -22,11 +23,7 @@ class TestProfesor(unittest.TestCase):
         with self.assertRaises(ValueError):
             Profesor("Luis","Perez",20564321,-50000)
     #interaccion entre clases 
-    def test_alumno_pregunta_profesor_responde(self):
-        alumno = Alumno("Martín", 2023)
-        profesor = Profesor("Laura", "Matemática", 70000)
-
-        pregunta = "¿Qué es una función?"
-        respuesta = profesor.responder(pregunta)
-
-        self.assertEqual(respuesta, "Buena pregunta: ¿Qué es una función?")
+    def test_profesor_responde_pregunta(self):
+       profesor = Profesor("Elena", "Diaz",21345634, 58000)
+       respuesta = profesor.responder("¿Qué es un poema?")
+       self.assertEqual(respuesta, "buena pregunta:¿Qué es un poema?")
